@@ -1,6 +1,6 @@
 <script>
 
-let {values, duration, random, minspeed} = $props()
+let { children,values, duration, random, minspeed} = $props()
 let counterResult = $state({})
 let init = $state(false)
 var timers = []
@@ -43,7 +43,6 @@ function getRandomInt(min, max) {
 
 </script>
 
-<!-- svelte-ignore slot_element_deprecated -->
 {#if init}
-<slot {counterResult}></slot>
+{@render children?.({ counterResult, })}
 {/if}
